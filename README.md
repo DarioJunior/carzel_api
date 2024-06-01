@@ -20,8 +20,14 @@
 
 ![UML](public/image.png)
 
-## Requisitos
+# PLANEJAMENTO
 
+## ATORES
+
+<p><b>Administrador</b></p>
+<p>O administrador é um usuário com privilégios ue pode adicionar, remover, editar ou marcar um veículo como vendido</p>
+
+## REQUISITOS
 <details>
   <summary>
     RF-0001 - CADASTRAR UM VEÍCULO

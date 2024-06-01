@@ -1,0 +1,29 @@
+services:
+  database:
+    image: 'bitnami/mysql:latest'
+    restart: always
+    container_name: 'carzel_db'
+    ports:
+      - 3310:3306
+    environment:
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker
+      - MYSQL_DATABASE=carzel
+      - MYSQL_ROOT_PASSWORD=docke
+      - ALLOW_EMPTY_PASSWORD=yes
+  app:
+    build: .
+    container_name: carzel_api
+    ports: 3001:3333
+    volumes:
+      - .:/usr/src/app
+    links:
+      - database
+    depends_on:
+      - database
+    command: sh -c "/wait; npm i; npx prisma migrate dev; npx prisma db seed; npm run start:dev"
+    environment:
+      - WAIT_HOSTS=database:3306
+      - WAIT_TIMEOUT=120
+      - WAIT_SLEEP_INTERVAL=10
+      - WAIT_HOST_CONNECT_TIMEOUT=120

@@ -20,6 +20,17 @@
 
 ![UML](public/image.png)
 
+## Requisitos
+
+<details>
+  <summary>
+    RF-0001 - CADASTRAR UM VEÍCULO
+  </summary>
+  <p>
+    Deverá ser possível cadastrar um veículo.
+  </p>
+</details>
+
 
 ## Installation
 

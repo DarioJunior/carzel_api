@@ -23,6 +23,14 @@
 # PLANEJAMENTO
 
 ## ATORES
+<details>
+  <summary>
+    RF-0001 - CADASTRAR UM VEÍCULO
+  </summary>
+  <p>
+    Deverá ser possível cadastrar um veículo.
+  </p>
+</details>
 
 <p><b>Administrador</b></p>
 <p>O administrador é um usuário com privilégios ue pode adicionar, remover, editar ou marcar um veículo como vendido</p>

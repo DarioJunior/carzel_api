@@ -1,8 +1,5 @@
 import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 
-
-
-
 @Module({
   imports: [],
   controllers: [],
@@ -10,5 +7,5 @@ import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
   exports: []
 })
 export class SharedModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {}
+  configure(consumer: MiddlewareConsumer) { }
 }

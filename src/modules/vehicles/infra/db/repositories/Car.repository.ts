@@ -3,10 +3,21 @@ import { CarRepositoryInterface } from "../../domain/repositories/Car.repository
 import { prisma } from "src/shared/infra/db/prisma";
 import { Vehicle } from "@prisma/client";
 
-
-
 @Injectable()
 export class CarRepository implements CarRepositoryInterface {
+  async getAll(): Promise<Vehicle[]> {
+    const cars = await prisma.vehicle.findMany({
+      include: {
+        MediaVehicle: {
+          include: {
+            media: true
+          }
+        }
+      }
+    })
+    return cars
+  }
+
   async create(): Promise<Vehicle> {
     const car = await prisma.vehicle.create({
       data: {

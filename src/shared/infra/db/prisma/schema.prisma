@@ -16,15 +16,17 @@ model VehicleBrand {
 }
 
 model Vehicle {
-  id           Int     @id @default(autoincrement())
-  brandId      Int     @map("brand_id")
+  id           Int      @id @default(autoincrement())
+  brandId      Int      @map("brand_id")
   model        String
   description  String
   value        Float
   mileage      Float
   year         Int
-  isManualGear Boolean @map("is_manual_gear")
-  isSold       Boolean @map("is_sold")
+  isManualGear Boolean  @map("is_manual_gear")
+  isSold       Boolean  @map("is_sold")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @default(now()) @map("updated_at")
 
   brand                      VehicleBrand                 @relation(fields: [brandId], references: [id])
   MediaVehicle               MediaVehicle[]
@@ -75,4 +77,16 @@ model VehicleOptionalArrangement {
 
   @@unique([vehicleId, optionalArrangementId])
   @@map("vehicle_optional_arrangements")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  isAdmin   Boolean  @default(false) @map("is_admin")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  @@map("users")
 }

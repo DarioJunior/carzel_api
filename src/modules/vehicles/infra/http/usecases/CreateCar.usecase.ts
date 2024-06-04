@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { UseCaseInterface } from "src/shared/domain/protocols/UseCase.protocol";
-import { CarRepositoryInterface } from "../../domain/repositories/Car.repository";
 import { CarRepository } from "../../db/repositories/Car.repository";
 
 @Injectable()

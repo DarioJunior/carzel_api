@@ -9,8 +9,6 @@ export class AuthenticationMiddleware implements NestMiddleware {
   ) { }
   use(request: Request, _response: Response, next: NextFunction) {
     const authHeader = request.headers.authorization;
-
-
     if (!authHeader) throw new Error('Token is missing');
 
     const [, token] = authHeader.split(' ');

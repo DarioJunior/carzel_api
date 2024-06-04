@@ -7,7 +7,7 @@ import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
   providers: [],
   exports: []
 })
-export class CarModule implements NestModule {
+export class UserModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply().forRoutes('')
   }

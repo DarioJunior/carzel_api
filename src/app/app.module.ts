@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { CarController } from 'src/modules/vehicles/infra/http/controllers/Car.controller';
+import { UserModule } from 'src/modules/users/modules/User.module';
 import { CarModule } from 'src/modules/vehicles/infra/modules/Car.module';
+import { SharedModule } from 'src/shared/infra/http/Shared.module';
 
 @Module({
   imports: [
@@ -9,7 +10,9 @@ import { CarModule } from 'src/modules/vehicles/infra/modules/Car.module';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    CarModule
+    CarModule,
+    UserModule,
+    SharedModule
   ],
 })
 export class AppModule { }
